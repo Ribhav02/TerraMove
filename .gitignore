@@ -1,0 +1,27 @@
+# Environments and credentials
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/.venv/
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.pnpm-debug.log*
+
+# System & OS
+.DS_Store
+Thumbs.db
+

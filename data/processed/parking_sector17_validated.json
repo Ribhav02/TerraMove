@@ -1,0 +1,584 @@
+{
+  "exact_sector17_count": 18,
+  "buffered_sector17_count": 5,
+  "total_accepted_chandigarh": 318,
+  "quarantined_count": 2,
+  "rejected_count": 3,
+  "sector17_records": [
+    {
+      "source_row": 230,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Empire Store Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.741079",
+        "longitude ": "76.780277",
+        "No. of  4 wheeler parking ": "230",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.741079,
+      "longitude": 76.780277,
+      "capacities": {
+        "No. of  4 wheeler parking ": 230,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 230,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 231,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Empire Store back",
+        "parking address ": "Sec-17",
+        "latitude": "30.74066",
+        "longitude ": "76.779712",
+        "No. of  4 wheeler parking ": "140",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.74066,
+      "longitude": 76.779712,
+      "capacities": {
+        "No. of  4 wheeler parking ": 140,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 140,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 232,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Sahib singh Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.737878",
+        "longitude ": "76.783788",
+        "No. of  4 wheeler parking ": "700",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.737878,
+      "longitude": 76.783788,
+      "capacities": {
+        "No. of  4 wheeler parking ": 700,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 700,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 234,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "CMC Main",
+        "parking address ": "Sec-17",
+        "latitude": "30.738056",
+        "longitude ": "76.784703",
+        "No. of  4 wheeler parking ": "320",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.738056,
+      "longitude": 76.784703,
+      "capacities": {
+        "No. of  4 wheeler parking ": 320,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 320,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 235,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Bank Square",
+        "parking address ": "Sec-17",
+        "latitude": "30.741474",
+        "longitude ": "76.786964",
+        "No. of  4 wheeler parking ": "561",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.741474,
+      "longitude": 76.786964,
+      "capacities": {
+        "No. of  4 wheeler parking ": 561,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 561,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 236,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Near Petrol pump",
+        "parking address ": "Sec-17 ",
+        "latitude": "30.742552",
+        "longitude ": "76.788205",
+        "No. of  4 wheeler parking ": "18",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.742552,
+      "longitude": 76.788205,
+      "capacities": {
+        "No. of  4 wheeler parking ": 18,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 18,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 237,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "M.C Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.740493",
+        "longitude ": "76.778684",
+        "No. of  4 wheeler parking ": "225",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.740493,
+      "longitude": 76.778684,
+      "capacities": {
+        "No. of  4 wheeler parking ": 225,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 225,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 238,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Police station Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.738991",
+        "longitude ": "76.777714",
+        "No. of  4 wheeler parking ": "22",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.738991,
+      "longitude": 76.777714,
+      "capacities": {
+        "No. of  4 wheeler parking ": 22,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 22,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 239,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Parade ground Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.73726",
+        "longitude ": "76.77758",
+        "No. of  4 wheeler parking ": "120",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.73726,
+      "longitude": 76.77758,
+      "capacities": {
+        "No. of  4 wheeler parking ": 120,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 120,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 240,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Football stadium Front",
+        "parking address ": "Sec-17",
+        "latitude": "30.737375",
+        "longitude ": "76.779356",
+        "No. of  4 wheeler parking ": "17",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.737375,
+      "longitude": 76.779356,
+      "capacities": {
+        "No. of  4 wheeler parking ": 17,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 17,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 241,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Circus Ground ",
+        "parking address ": "Sec-17",
+        "latitude": "30.737184",
+        "longitude ": "76.78131",
+        "No. of  4 wheeler parking ": "70",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.737184,
+      "longitude": 76.78131,
+      "capacities": {
+        "No. of  4 wheeler parking ": 70,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 70,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 242,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Azad Hind store Back ",
+        "parking address ": "Sec-17",
+        "latitude": "30.738234",
+        "longitude ": "76.78171",
+        "No. of  4 wheeler parking ": "63",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.738234,
+      "longitude": 76.78171,
+      "capacities": {
+        "No. of  4 wheeler parking ": 63,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 63,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 243,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Neelam Chinema Back Right side",
+        "parking address ": "Sec-17",
+        "latitude": "30.739197",
+        "longitude ": "76.78089",
+        "No. of  4 wheeler parking ": "60",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.739197,
+      "longitude": 76.78089,
+      "capacities": {
+        "No. of  4 wheeler parking ": 60,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 60,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 244,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Multilevel ",
+        "parking address ": "Sec-17",
+        "latitude": "30.741888",
+        "longitude ": "76.78133",
+        "No. of  4 wheeler parking ": "900",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.741888,
+      "longitude": 76.78133,
+      "capacities": {
+        "No. of  4 wheeler parking ": 900,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 900,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 245,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Near Post office",
+        "parking address ": "Sec-17",
+        "latitude": "30.741923",
+        "longitude ": "76.782882",
+        "No. of  4 wheeler parking ": "31",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.741923,
+      "longitude": 76.782882,
+      "capacities": {
+        "No. of  4 wheeler parking ": 31,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 31,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 246,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Bsnl Office ",
+        "parking address ": "Sec-17",
+        "latitude": "30.743074",
+        "longitude ": "76.78299",
+        "No. of  4 wheeler parking ": "0",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.743074,
+      "longitude": 76.78299,
+      "capacities": {
+        "No. of  4 wheeler parking ": 0,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": null,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 247,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "TDI Mall ",
+        "parking address ": "Sec-17",
+        "latitude": "30.744071",
+        "longitude ": "76.785627",
+        "No. of  4 wheeler parking ": "300",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.744071,
+      "longitude": 76.785627,
+      "capacities": {
+        "No. of  4 wheeler parking ": 300,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 300,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 248,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Near smart city",
+        "parking address ": "Sec-17",
+        "latitude": "30.743739",
+        "longitude ": "76.78716",
+        "No. of  4 wheeler parking ": "210",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.743739,
+      "longitude": 76.78716,
+      "capacities": {
+        "No. of  4 wheeler parking ": 210,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": true,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 210,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 211,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "1",
+        "Name of parking": "Madhya Marg Sector 9-C",
+        "parking address ": "Along Madhya Marg ",
+        "latitude": "30.741759",
+        "longitude ": "76.790475",
+        "No. of  4 wheeler parking ": "559",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.741759,
+      "longitude": 76.790475,
+      "capacities": {
+        "No. of  4 wheeler parking ": 559,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": false,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 559,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 212,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "1",
+        "Name of parking": "Madhya Marg Sector 9-D",
+        "parking address ": "Along Madhya Marg",
+        "latitude": "30.744597",
+        "longitude ": "76.788284",
+        "No. of  4 wheeler parking ": "406",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.744597,
+      "longitude": 76.788284,
+      "capacities": {
+        "No. of  4 wheeler parking ": 406,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": false,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 406,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 213,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "1",
+        "Name of parking": "Madhya Marg Sector 9-C",
+        "parking address ": "Along Madhya Marg Back side of SCO's",
+        "latitude": "30.742655",
+        "longitude ": "76.790279",
+        "No. of  4 wheeler parking ": "448",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.742655,
+      "longitude": 76.790279,
+      "capacities": {
+        "No. of  4 wheeler parking ": 448,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": false,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 448,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 250,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Sco-1001 to 1061",
+        "parking address ": "Sec-22",
+        "latitude": "30.736195",
+        "longitude ": "76.777014",
+        "No. of  4 wheeler parking ": "420",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.736195,
+      "longitude": 76.777014,
+      "capacities": {
+        "No. of  4 wheeler parking ": 420,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": false,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 420,
+      "availability_status": "unknown"
+    },
+    {
+      "source_row": 251,
+      "raw": {
+        "City Name": "Chandigarh",
+        "Zone Name": "2",
+        "Ward Name ": "3",
+        "Name of parking": "Sun Beam hotal side",
+        "parking address ": "Sec-22",
+        "latitude": "30.733477",
+        "longitude ": "76.779042",
+        "No. of  4 wheeler parking ": "37",
+        "No. of  2 wheeler parking ": "NA"
+      },
+      "name": "Chandigarh",
+      "latitude": 30.733477,
+      "longitude": 76.779042,
+      "capacities": {
+        "No. of  4 wheeler parking ": 37,
+        "No. of  2 wheeler parking ": null
+      },
+      "in_sector17_exact": false,
+      "in_sector17_buffered": true,
+      "total_capacity_recorded": 37,
+      "availability_status": "unknown"
+    }
+  ]
+}

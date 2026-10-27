@@ -1,0 +1,468 @@
+{
+  "sector_boundaries": {
+    "status": 200,
+    "count": 1,
+    "sample": {
+      "id": "ce5a1457-acdf-4da9-9b6d-d579b57ecb17",
+      "sector_name": "Sector 17",
+      "ward_name": "3",
+      "zone_name": "2",
+      "area_sqkm": 1.1374,
+      "pilot_area": true,
+      "geom": {
+        "type": "Polygon",
+        "crs": {
+          "type": "name",
+          "properties": {
+            "name": "EPSG:4326"
+          }
+        },
+        "coordinates": [
+          [
+            [
+              76.79097056244154,
+              30.74046781563726
+            ],
+            [
+              76.77971551196134,
+              30.7334212254093
+            ],
+            [
+              76.77429662808697,
+              30.739683119380516
+            ],
+            [
+              76.77541501149364,
+              30.74025310609602
+            ],
+            [
+              76.78564935933053,
+              30.746628781393213
+            ],
+            [
+              76.79097056244154,
+              30.74046781563726
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "parking_locations": {
+    "status": 200,
+    "sample_items": [
+      {
+        "source_row": 230,
+        "name": "Chandigarh",
+        "capacity_four_wheeler": 230,
+        "capacity_two_wheeler": 0,
+        "total_capacity": 230,
+        "availability_status": "unknown",
+        "geom": {
+          "type": "Point",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            76.780277,
+            30.741079
+          ]
+        }
+      },
+      {
+        "source_row": 231,
+        "name": "Chandigarh",
+        "capacity_four_wheeler": 140,
+        "capacity_two_wheeler": 0,
+        "total_capacity": 140,
+        "availability_status": "unknown",
+        "geom": {
+          "type": "Point",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            76.779712,
+            30.74066
+          ]
+        }
+      },
+      {
+        "source_row": 232,
+        "name": "Chandigarh",
+        "capacity_four_wheeler": 700,
+        "capacity_two_wheeler": 0,
+        "total_capacity": 700,
+        "availability_status": "unknown",
+        "geom": {
+          "type": "Point",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            76.783788,
+            30.737878
+          ]
+        }
+      }
+    ]
+  },
+  "pedestrian_edges": {
+    "status": 200,
+    "sample_items": [
+      {
+        "id": "c6bdbf5d-ace9-5431-bcf2-4f81b6ed7b90",
+        "osm_id": "way/129774426",
+        "highway_type": "residential",
+        "street_name": "Unnamed Path",
+        "length_meters": 241.07,
+        "walk_time_seconds": 185.44,
+        "shade_score": 35,
+        "geom": {
+          "type": "LineString",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              76.7884956,
+              30.7400665
+            ],
+            [
+              76.7884021,
+              30.7401546
+            ],
+            [
+              76.7883321,
+              30.74026
+            ],
+            [
+              76.7876778,
+              30.7410346
+            ],
+            [
+              76.7874694,
+              30.7412813
+            ],
+            [
+              76.787245,
+              30.741547
+            ],
+            [
+              76.7870136,
+              30.741819
+            ]
+          ]
+        }
+      },
+      {
+        "id": "d3d681f1-102f-508b-8cef-5e49e735dfb4",
+        "osm_id": "way/129774428",
+        "highway_type": "residential",
+        "street_name": "Unnamed Path",
+        "length_meters": 1131.15,
+        "walk_time_seconds": 870.11,
+        "shade_score": 35,
+        "geom": {
+          "type": "LineString",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              76.7900632,
+              30.7411909
+            ],
+            [
+              76.7890155,
+              30.7405382
+            ],
+            [
+              76.7884801,
+              30.7402046
+            ],
+            [
+              76.7884021,
+              30.7401546
+            ],
+            [
+              76.7881211,
+              30.739981
+            ],
+            [
+              76.7863308,
+              30.7388657
+            ],
+            [
+              76.7853635,
+              30.7382631
+            ],
+            [
+              76.785311,
+              30.7382305
+            ],
+            [
+              76.7844065,
+              30.7376696
+            ],
+            [
+              76.7840897,
+              30.7374695
+            ],
+            [
+              76.7837994,
+              30.7372886
+            ],
+            [
+              76.782813,
+              30.7366741
+            ],
+            [
+              76.7827083,
+              30.7366088
+            ],
+            [
+              76.7810154,
+              30.7355541
+            ],
+            [
+              76.7804804,
+              30.7352208
+            ]
+          ]
+        }
+      },
+      {
+        "id": "8ad8385a-191c-5a1b-9e03-a4607df9ac12",
+        "osm_id": "way/129774444",
+        "highway_type": "service",
+        "street_name": "Unnamed Path",
+        "length_meters": 196.06,
+        "walk_time_seconds": 150.82,
+        "shade_score": 35,
+        "geom": {
+          "type": "LineString",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              76.7822125,
+              30.7386556
+            ],
+            [
+              76.7823645,
+              30.7387428
+            ],
+            [
+              76.7824328,
+              30.7386686
+            ],
+            [
+              76.7826443,
+              30.738794
+            ],
+            [
+              76.7826774,
+              30.7388139
+            ],
+            [
+              76.7826886,
+              30.7388203
+            ],
+            [
+              76.7827061,
+              30.7388303
+            ],
+            [
+              76.7827396,
+              30.7388472
+            ],
+            [
+              76.7827752,
+              30.7388624
+            ],
+            [
+              76.7828145,
+              30.7388643
+            ],
+            [
+              76.7828485,
+              30.7388548
+            ],
+            [
+              76.7828746,
+              30.7388402
+            ],
+            [
+              76.7829063,
+              30.7388084
+            ],
+            [
+              76.7829425,
+              30.7387612
+            ],
+            [
+              76.7834737,
+              30.7380877
+            ],
+            [
+              76.7836387,
+              30.7380242
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "buildings": {
+    "status": 200,
+    "sample_items": [
+      {
+        "osm_id": "way/129774160",
+        "building_type": "yes",
+        "building_name": null,
+        "height_meters": 14.0,
+        "levels": 3,
+        "height_quality": "sector17_commercial_baseline",
+        "geom": {
+          "type": "Polygon",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              [
+                76.7829882,
+                30.7427176
+              ],
+              [
+                76.7829431,
+                30.7426893
+              ],
+              [
+                76.7831431,
+                30.742454
+              ],
+              [
+                76.7831882,
+                30.7424823
+              ],
+              [
+                76.7829882,
+                30.7427176
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "osm_id": "way/129774264",
+        "building_type": "yes",
+        "building_name": null,
+        "height_meters": 14.0,
+        "levels": 3,
+        "height_quality": "sector17_commercial_baseline",
+        "geom": {
+          "type": "Polygon",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              [
+                76.7834708,
+                30.7387142
+              ],
+              [
+                76.7837531,
+                30.7388846
+              ],
+              [
+                76.783721,
+                30.7389239
+              ],
+              [
+                76.7834387,
+                30.7387535
+              ],
+              [
+                76.7834708,
+                30.7387142
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "osm_id": "way/129774265",
+        "building_type": "yes",
+        "building_name": null,
+        "height_meters": 14.0,
+        "levels": 3,
+        "height_quality": "sector17_commercial_baseline",
+        "geom": {
+          "type": "Polygon",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "EPSG:4326"
+            }
+          },
+          "coordinates": [
+            [
+              [
+                76.7834387,
+                30.7387535
+              ],
+              [
+                76.783721,
+                30.7389239
+              ],
+              [
+                76.7836889,
+                30.7389632
+              ],
+              [
+                76.7834066,
+                30.7387928
+              ],
+              [
+                76.7834387,
+                30.7387535
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "citizen_reports": {
+    "status": 200,
+    "count": 0
+  }
+}

@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+httpx
+shapely
+pyshp
+networkx
+pytest
+python-dotenv

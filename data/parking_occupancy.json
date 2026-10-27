@@ -1,0 +1,26 @@
+[
+  {
+    "facility_id": "parking_248",
+    "facility_source_row": 248,
+    "facility_name": "Chandigarh",
+    "physical_status": "occupied",
+    "occupied_spaces": 50,
+    "total_capacity": 210,
+    "source": "operator_manual",
+    "operator_id": "staff_on_duty",
+    "notes": "Lot full; police blockade on entry",
+    "recorded_at": "2026-10-27T15:30:59.344939+00:00"
+  },
+  {
+    "facility_id": "parking_244",
+    "facility_source_row": 244,
+    "facility_name": "Chandigarh",
+    "physical_status": "available",
+    "occupied_spaces": 10,
+    "total_capacity": 900,
+    "source": "operator_manual",
+    "operator_id": "staff_on_duty",
+    "notes": null,
+    "recorded_at": "2026-10-27T15:31:02.320710+00:00"
+  }
+]

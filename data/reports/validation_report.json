@@ -1,0 +1,116 @@
+{
+  "pilot_area": "Sector 17, Chandigarh, India",
+  "sector_boundary": {
+    "source_records": 63,
+    "sector_identifier": "17",
+    "bounding_box_wgs84": [
+      76.77429662808697,
+      30.7334212254093,
+      76.79097056244154,
+      30.746628781393213
+    ],
+    "buffer_degrees": 0.001
+  },
+  "parking_dataset": {
+    "total_raw": 323,
+    "accepted_total": 318,
+    "quarantined_total": 2,
+    "rejected_total": 3,
+    "sector17_exact": 18,
+    "sector17_buffered": 5,
+    "sample_sec17": [
+      {
+        "source_row": 230,
+        "raw": {
+          "City Name": "Chandigarh",
+          "Zone Name": "2",
+          "Ward Name ": "3",
+          "Name of parking": "Empire Store Front",
+          "parking address ": "Sec-17",
+          "latitude": "30.741079",
+          "longitude ": "76.780277",
+          "No. of  4 wheeler parking ": "230",
+          "No. of  2 wheeler parking ": "NA"
+        },
+        "name": "Chandigarh",
+        "latitude": 30.741079,
+        "longitude": 76.780277,
+        "capacities": {
+          "No. of  4 wheeler parking ": 230,
+          "No. of  2 wheeler parking ": null
+        },
+        "in_sector17_exact": true,
+        "in_sector17_buffered": true,
+        "total_capacity_recorded": 230,
+        "availability_status": "unknown"
+      },
+      {
+        "source_row": 231,
+        "raw": {
+          "City Name": "Chandigarh",
+          "Zone Name": "2",
+          "Ward Name ": "3",
+          "Name of parking": "Empire Store back",
+          "parking address ": "Sec-17",
+          "latitude": "30.74066",
+          "longitude ": "76.779712",
+          "No. of  4 wheeler parking ": "140",
+          "No. of  2 wheeler parking ": "NA"
+        },
+        "name": "Chandigarh",
+        "latitude": 30.74066,
+        "longitude": 76.779712,
+        "capacities": {
+          "No. of  4 wheeler parking ": 140,
+          "No. of  2 wheeler parking ": null
+        },
+        "in_sector17_exact": true,
+        "in_sector17_buffered": true,
+        "total_capacity_recorded": 140,
+        "availability_status": "unknown"
+      },
+      {
+        "source_row": 232,
+        "raw": {
+          "City Name": "Chandigarh",
+          "Zone Name": "2",
+          "Ward Name ": "3",
+          "Name of parking": "Sahib singh Front",
+          "parking address ": "Sec-17",
+          "latitude": "30.737878",
+          "longitude ": "76.783788",
+          "No. of  4 wheeler parking ": "700",
+          "No. of  2 wheeler parking ": "NA"
+        },
+        "name": "Chandigarh",
+        "latitude": 30.737878,
+        "longitude": 76.783788,
+        "capacities": {
+          "No. of  4 wheeler parking ": 700,
+          "No. of  2 wheeler parking ": null
+        },
+        "in_sector17_exact": true,
+        "in_sector17_buffered": true,
+        "total_capacity_recorded": 700,
+        "availability_status": "unknown"
+      }
+    ]
+  },
+  "osm_network_and_buildings": {
+    "total_features_inspected": 1180,
+    "invalid_geometries_repaired": 0,
+    "sector17_walkable_edges": 378,
+    "sector17_buildings": 358,
+    "other_features_within_sector": 5
+  },
+  "unstructured_pdf_inventory": {
+    "native_trees_pdf": {
+      "file": "Native Trees Chandigarh.pdf",
+      "status": "Verified presence. Botanical reference only; contains species descriptions without GIS coordinates. Will not hallucinate street-level tree inventory."
+    },
+    "groundwater_pdf": {
+      "file": "CGWReport.pdf",
+      "status": "Verified presence. Regional hydrogeological context only. Not used for microclimate heat/weather routing."
+    }
+  }
+}

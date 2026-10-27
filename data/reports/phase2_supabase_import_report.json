@@ -1,0 +1,38 @@
+{
+  "status": "success",
+  "import_summary": {
+    "sector_boundaries": {
+      "staged": 1,
+      "inserted": 1,
+      "errors": []
+    },
+    "parking_locations": {
+      "staged": 23,
+      "inserted": 23,
+      "errors": []
+    },
+    "pedestrian_edges": {
+      "staged": 378,
+      "inserted": 378,
+      "errors": []
+    },
+    "buildings": {
+      "staged": 358,
+      "inserted": 358,
+      "errors": []
+    },
+    "citizen_reports": {
+      "staged": 0,
+      "inserted": 0,
+      "note": "Kept empty by design"
+    }
+  },
+  "live_counts": {
+    "sector_boundaries": 1,
+    "parking_locations": 23,
+    "pedestrian_edges": 378,
+    "buildings": 358,
+    "citizen_reports": 0
+  },
+  "dry_run": false
+}
