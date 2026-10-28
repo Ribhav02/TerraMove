@@ -1,27 +1,56 @@
 import React from 'react';
-import { Compass, Leaf, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Compass, Leaf, ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
 import type { HealthStatus } from '../types';
 
 interface AppShellProps {
   health: HealthStatus | null;
   children: React.ReactNode;
+  onBackToLanding?: () => void;
 }
 
-export const AppShell: React.FC<AppShellProps> = ({ health, children }) => {
+export const AppShell: React.FC<AppShellProps> = ({ health, children, onBackToLanding }) => {
   const isHealthy = health?.status === 'healthy';
 
   return (
     <div className="terramove-app">
       <header className="app-header">
         <div className="header-brand">
-          <div className="brand-logo">
-            <Compass className="icon-logo" />
-            <Leaf className="icon-leaf" />
-          </div>
-          <div>
-            <h1 className="brand-title">TerraMove</h1>
-            <p className="brand-subtitle">Smart & Sustainable Mobility — Pilot: Sector 17, Chandigarh</p>
-          </div>
+          {onBackToLanding && (
+            <button
+              className="back-to-landing-btn"
+              onClick={onBackToLanding}
+              title="Back to TerraMove Home"
+              style={{
+                background: 'rgba(0, 255, 136, 0.1)',
+                border: '1px solid rgba(0, 255, 136, 0.4)',
+                borderRadius: '8px',
+                padding: '6px 14px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '12px',
+                fontWeight: 700,
+                color: '#00ff88',
+                cursor: 'pointer',
+                marginRight: '12px',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 0 12px rgba(0, 255, 136, 0.15)',
+              }}
+            >
+              <ArrowLeft style={{ width: '14px', height: '14px' }} />
+              <span>← Landing</span>
+            </button>
+          )}
+          <img
+            src="/terramove-logo.png"
+            alt="TerraMove"
+            style={{
+              height: '48px',
+              width: 'auto',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5))',
+            }}
+          />
         </div>
 
         <div className="header-badges">
@@ -52,4 +81,3 @@ export const AppShell: React.FC<AppShellProps> = ({ health, children }) => {
     </div>
   );
 };
-

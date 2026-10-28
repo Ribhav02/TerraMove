@@ -254,9 +254,10 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
-            backgroundColor: activeTab === 'report' ? '#ffffff' : 'transparent',
-            color: activeTab === 'report' ? '#0f172a' : '#64748b',
-            boxShadow: activeTab === 'report' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none'
+            backgroundColor: activeTab === 'report' ? '#162436' : 'transparent',
+            color: activeTab === 'report' ? '#00ff88' : '#94a3b8',
+            border: activeTab === 'report' ? '1px solid rgba(0, 255, 136, 0.4)' : 'none',
+            boxShadow: activeTab === 'report' ? '0 0 10px rgba(0, 255, 136, 0.15)' : 'none'
           }}
         >
           Report Issue
@@ -269,12 +270,12 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             padding: '7px 10px',
             fontSize: '12px',
             fontWeight: 600,
-            border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
-            backgroundColor: activeTab === 'feed' ? '#ffffff' : 'transparent',
-            color: activeTab === 'feed' ? '#0f172a' : '#64748b',
-            boxShadow: activeTab === 'feed' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none'
+            backgroundColor: activeTab === 'feed' ? '#162436' : 'transparent',
+            color: activeTab === 'feed' ? '#00ff88' : '#94a3b8',
+            border: activeTab === 'feed' ? '1px solid rgba(0, 255, 136, 0.4)' : 'none',
+            boxShadow: activeTab === 'feed' ? '0 0 10px rgba(0, 255, 136, 0.15)' : 'none'
           }}
         >
           Community Hazards
@@ -287,12 +288,12 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             padding: '7px 10px',
             fontSize: '12px',
             fontWeight: 600,
-            border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
-            backgroundColor: activeTab === 'moderator' ? '#ffffff' : 'transparent',
-            color: activeTab === 'moderator' ? '#0f172a' : '#64748b',
-            boxShadow: activeTab === 'moderator' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none'
+            backgroundColor: activeTab === 'moderator' ? '#162436' : 'transparent',
+            color: activeTab === 'moderator' ? '#00ff88' : '#94a3b8',
+            border: activeTab === 'moderator' ? '1px solid rgba(0, 255, 136, 0.4)' : 'none',
+            boxShadow: activeTab === 'moderator' ? '0 0 10px rgba(0, 255, 136, 0.15)' : 'none'
           }}
         >
           Staff Moderation
@@ -303,7 +304,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
       {activeTab === 'report' && (
         <form onSubmit={handleSubmitReport} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div>
-            <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
               ISSUE CATEGORY
             </label>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px' }}>
@@ -318,9 +319,9 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                     gap: '6px',
                     padding: '8px 10px',
                     fontSize: '11px',
-                    border: category === cat.value ? '2px solid #4f46e5' : '1px solid #cbd5e1',
-                    background: category === cat.value ? '#eef2ff' : '#ffffff',
-                    color: category === cat.value ? '#3730a3' : '#334155',
+                    border: category === cat.value ? '1px solid #00ff88' : '1px solid rgba(148, 163, 184, 0.18)',
+                    background: category === cat.value ? 'rgba(0, 255, 136, 0.12)' : '#080d14',
+                    color: category === cat.value ? '#00ff88' : '#cbd5e1',
                     borderRadius: '6px',
                     cursor: 'pointer',
                     textAlign: 'left'
@@ -336,7 +337,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
           </div>
 
           <div>
-            <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
               SHORT TITLE *
             </label>
             <input
@@ -350,7 +351,9 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                 width: '100%',
                 padding: '8px 10px',
                 fontSize: '13px',
-                border: '1px solid #cbd5e1',
+                border: '1px solid rgba(148, 163, 184, 0.2)',
+                background: '#080d14',
+                color: '#f8fafc',
                 borderRadius: '6px',
                 boxSizing: 'border-box'
               }}
@@ -358,7 +361,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
           </div>
 
           <div>
-            <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
               DESCRIPTION (OPTIONAL)
             </label>
             <textarea
@@ -371,7 +374,9 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                 width: '100%',
                 padding: '8px 10px',
                 fontSize: '12px',
-                border: '1px solid #cbd5e1',
+                border: '1px solid rgba(148, 163, 184, 0.2)',
+                background: '#080d14',
+                color: '#f8fafc',
                 borderRadius: '6px',
                 boxSizing: 'border-box',
                 resize: 'vertical'
@@ -381,7 +386,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
             <div>
-              <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
                 SEVERITY
               </label>
               <select
@@ -391,9 +396,10 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                   width: '100%',
                   padding: '7px 8px',
                   fontSize: '12px',
-                  border: '1px solid #cbd5e1',
+                  border: '1px solid rgba(148, 163, 184, 0.2)',
                   borderRadius: '6px',
-                  background: '#ffffff'
+                  background: '#080d14',
+                  color: '#f8fafc'
                 }}
               >
                 <option value="low">Low (Minor inconvenience)</option>
@@ -404,7 +410,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             </div>
 
             <div>
-              <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+              <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
                 LOCATION: {lat.toFixed(4)}, {lon.toFixed(4)}
               </label>
               <div style={{ display: 'flex', gap: '4px' }}>
@@ -416,9 +422,9 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                     flex: 1,
                     padding: '6px',
                     fontSize: '11px',
-                    border: '1px solid #cbd5e1',
-                    background: isGps ? '#dbeafe' : '#f8fafc',
-                    color: isGps ? '#1d4ed8' : '#334155',
+                    border: '1px solid rgba(148, 163, 184, 0.2)',
+                    background: isGps ? 'rgba(56, 189, 248, 0.15)' : '#080d14',
+                    color: isGps ? '#38bdf8' : '#cbd5e1',
                     borderRadius: '6px',
                     cursor: 'pointer',
                     display: 'flex',
@@ -439,9 +445,9 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                       flex: 1,
                       padding: '6px',
                       fontSize: '11px',
-                      border: '1px solid #cbd5e1',
-                      background: '#f8fafc',
-                      color: '#334155',
+                      border: '1px solid rgba(148, 163, 184, 0.2)',
+                      background: '#080d14',
+                      color: '#cbd5e1',
                       borderRadius: '6px',
                       cursor: 'pointer',
                       display: 'flex',
@@ -554,7 +560,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             <select
               value={feedStatusFilter}
               onChange={(e) => setFeedStatusFilter(e.target.value)}
-              style={{ flex: 1, padding: '5px 8px', fontSize: '11px', border: '1px solid #cbd5e1', borderRadius: '6px', background: '#ffffff' }}
+              style={{ flex: 1, padding: '5px 8px', fontSize: '11px', border: '1px solid rgba(148, 163, 184, 0.2)', borderRadius: '6px', background: '#080d14', color: '#f8fafc' }}
             >
               <option value="all">All Statuses</option>
               <option value="verified">Verified Hazards</option>
@@ -566,7 +572,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             <select
               value={feedCategoryFilter}
               onChange={(e) => setFeedCategoryFilter(e.target.value)}
-              style={{ flex: 1, padding: '5px 8px', fontSize: '11px', border: '1px solid #cbd5e1', borderRadius: '6px', background: '#ffffff' }}
+              style={{ flex: 1, padding: '5px 8px', fontSize: '11px', border: '1px solid rgba(148, 163, 184, 0.2)', borderRadius: '6px', background: '#080d14', color: '#f8fafc' }}
             >
               <option value="all">All Categories</option>
               {CATEGORIES.map((c) => (
@@ -578,38 +584,38 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
               type="button"
               onClick={loadFeed}
               title="Refresh feed"
-              style={{ padding: '6px 8px', background: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '6px', cursor: 'pointer' }}
+              style={{ padding: '6px 8px', background: '#111a26', border: '1px solid rgba(148, 163, 184, 0.2)', color: '#00ff88', borderRadius: '6px', cursor: 'pointer' }}
             >
               <RefreshCw style={{ width: '12px', height: '12px' }} />
             </button>
           </div>
 
           {isLoadingFeed ? (
-            <div style={{ textAlign: 'center', padding: '20px', fontSize: '12px', color: '#64748b' }}>
+            <div style={{ textAlign: 'center', padding: '20px', fontSize: '12px', color: '#94a3b8' }}>
               Loading community reports from Supabase...
             </div>
           ) : reports.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '24px', background: '#f8fafc', borderRadius: '8px', border: '1px dashed #cbd5e1' }}>
-              <Info style={{ width: '20px', height: '20px', color: '#94a3b8', margin: '0 auto 6px auto' }} />
-              <div style={{ fontSize: '12px', fontWeight: 600, color: '#334155' }}>No reports found</div>
-              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
+            <div style={{ textAlign: 'center', padding: '24px', background: '#091018', borderRadius: '8px', border: '1px dashed rgba(148, 163, 184, 0.2)' }}>
+              <Info style={{ width: '20px', height: '20px', color: '#00ff88', margin: '0 auto 6px auto' }} />
+              <div style={{ fontSize: '12px', fontWeight: 600, color: '#f8fafc' }}>No reports found</div>
+              <div style={{ fontSize: '11px', color: '#94a3b8', marginTop: '2px' }}>
                 There are currently no community reports matching this filter.
               </div>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '420px', overflowY: 'auto' }}>
               {reports.map((r) => {
-                const statusColor = r.status === 'verified' ? '#dc2626' : (r.status === 'resolved' ? '#16a34a' : '#d97706');
-                const statusBg = r.status === 'verified' ? '#fef2f2' : (r.status === 'resolved' ? '#f0fdf4' : '#fffbeb');
+                const statusColor = r.status === 'verified' ? '#f87171' : (r.status === 'resolved' ? '#34d399' : '#fbbf24');
+                const statusBg = r.status === 'verified' ? 'rgba(239, 68, 68, 0.15)' : (r.status === 'resolved' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)');
                 return (
                   <div
                     key={r.id}
                     style={{
                       padding: '10px 12px',
-                      background: '#ffffff',
-                      border: '1px solid #e2e8f0',
+                      background: '#0d1520',
+                      border: '1px solid rgba(148, 163, 184, 0.18)',
                       borderRadius: '8px',
-                      boxShadow: '0 1px 2px rgba(0,0,0,0.03)'
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.3)'
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4px' }}>
@@ -621,12 +627,12 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                       </span>
                     </div>
 
-                    <div style={{ fontSize: '13px', fontWeight: 600, color: '#0f172a', marginBottom: '3px' }}>
+                    <div style={{ fontSize: '13px', fontWeight: 600, color: '#f8fafc', marginBottom: '3px' }}>
                       {r.title}
                     </div>
 
                     {r.description && (
-                      <div style={{ fontSize: '11px', color: '#475569', marginBottom: '6px', lineHeight: '1.4' }}>
+                      <div style={{ fontSize: '11px', color: '#94a3b8', marginBottom: '6px', lineHeight: '1.4' }}>
                         {r.description}
                       </div>
                     )}
@@ -637,13 +643,13 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                           <img
                             src={r.photo_url}
                             alt="Attachment"
-                            style={{ width: '100%', maxHeight: '120px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #e2e8f0' }}
+                            style={{ width: '100%', maxHeight: '120px', objectFit: 'cover', borderRadius: '4px', border: '1px solid rgba(148, 163, 184, 0.2)' }}
                           />
                         </a>
                       </div>
                     )}
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', color: '#64748b', borderTop: '1px solid #f1f5f9', paddingTop: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', color: '#94a3b8', borderTop: '1px solid rgba(148, 163, 184, 0.12)', paddingTop: '6px' }}>
                       <span>Category: {r.category_display}</span>
                       {onFocusHazardOnMap && (
                         <button
@@ -652,7 +658,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                           style={{
                             background: 'transparent',
                             border: 'none',
-                            color: '#4f46e5',
+                            color: '#00ff88',
                             cursor: 'pointer',
                             fontWeight: 600,
                             display: 'flex',
@@ -676,13 +682,13 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
       {/* TAB 3: STAFF MODERATION */}
       {activeTab === 'moderator' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <div style={{ padding: '8px 10px', background: '#eff6ff', borderRadius: '6px', border: '1px solid #bfdbfe', fontSize: '11px', color: '#1e40af' }}>
-            <ShieldCheck style={{ width: '14px', height: '14px', display: 'inline', marginRight: '4px' }} />
+          <div style={{ padding: '8px 10px', background: 'rgba(56, 189, 248, 0.12)', borderRadius: '6px', border: '1px solid rgba(56, 189, 248, 0.3)', fontSize: '11px', color: '#bae6fd' }}>
+            <ShieldCheck style={{ width: '14px', height: '14px', display: 'inline', marginRight: '4px', color: '#38bdf8' }} />
             Staff credentials are required to change report statuses. Unverified reports are not surfaced as official hazard alerts.
           </div>
 
           <div>
-            <label style={{ fontSize: '11px', fontWeight: 600, color: '#475569', display: 'block', marginBottom: '4px' }}>
+            <label style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', display: 'block', marginBottom: '4px' }}>
               MODERATOR TOKEN (X-MODERATOR-TOKEN)
             </label>
             <div style={{ display: 'flex', gap: '6px' }}>
@@ -691,12 +697,12 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                 placeholder="Enter server moderator secret"
                 value={moderatorToken}
                 onChange={(e) => setModeratorToken(e.target.value)}
-                style={{ flex: 1, padding: '7px 9px', fontSize: '12px', border: '1px solid #cbd5e1', borderRadius: '6px' }}
+                style={{ flex: 1, padding: '7px 9px', fontSize: '12px', border: '1px solid rgba(148, 163, 184, 0.2)', background: '#080d14', color: '#f8fafc', borderRadius: '6px' }}
               />
               <button
                 type="button"
                 onClick={() => setShowToken(!showToken)}
-                style={{ padding: '6px 10px', background: '#f8fafc', border: '1px solid #cbd5e1', borderRadius: '6px', cursor: 'pointer' }}
+                style={{ padding: '6px 10px', background: '#111a26', border: '1px solid rgba(148, 163, 184, 0.2)', color: '#cbd5e1', borderRadius: '6px', cursor: 'pointer' }}
               >
                 {showToken ? <EyeOff style={{ width: '14px', height: '14px' }} /> : <Eye style={{ width: '14px', height: '14px' }} />}
               </button>
@@ -704,18 +710,18 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
           </div>
 
           {modError && (
-            <div style={{ padding: '6px 8px', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '6px', fontSize: '11px', color: '#991b1b' }}>
+            <div style={{ padding: '6px 8px', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.35)', borderRadius: '6px', fontSize: '11px', color: '#fca5a5' }}>
               {modError}
             </div>
           )}
 
           {modSuccess && (
-            <div style={{ padding: '6px 8px', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '6px', fontSize: '11px', color: '#166534' }}>
+            <div style={{ padding: '6px 8px', background: 'rgba(0, 255, 136, 0.12)', border: '1px solid rgba(0, 255, 136, 0.35)', borderRadius: '6px', fontSize: '11px', color: '#86efac' }}>
               {modSuccess}
             </div>
           )}
 
-          <div style={{ fontSize: '11px', fontWeight: 600, color: '#334155', marginTop: '4px' }}>
+          <div style={{ fontSize: '11px', fontWeight: 600, color: '#f8fafc', marginTop: '4px' }}>
             REPORTS REQUIRING REVIEW ({reports.length})
           </div>
 
@@ -725,13 +731,13 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                 key={r.id}
                 style={{
                   padding: '8px 10px',
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
+                  background: '#0d1520',
+                  border: '1px solid rgba(148, 163, 184, 0.18)',
                   borderRadius: '6px'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 600, color: '#0f172a' }}>{r.title}</span>
+                  <span style={{ fontSize: '12px', fontWeight: 600, color: '#f8fafc' }}>{r.title}</span>
                   <span style={{ fontSize: '10px', padding: '1px 5px', borderRadius: '3px', background: '#f1f5f9', color: '#475569' }}>
                     {r.status}
                   </span>
@@ -748,41 +754,41 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                       placeholder="Optional moderator notes / inspection details"
                       value={modNotes}
                       onChange={(e) => setModNotes(e.target.value)}
-                      style={{ padding: '5px 8px', fontSize: '11px', border: '1px solid #cbd5e1', borderRadius: '4px' }}
+                      style={{ padding: '5px 8px', fontSize: '11px', border: '1px solid rgba(148, 163, 184, 0.2)', background: '#080d14', color: '#f8fafc', borderRadius: '4px' }}
                     />
                     <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                       <button
                         type="button"
                         onClick={() => handleModerate(r.id, 'verified')}
-                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: '#fee2e2', color: '#dc2626', border: '1px solid #fca5a5', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: 'rgba(239, 68, 68, 0.15)', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.4)', borderRadius: '4px', cursor: 'pointer' }}
                       >
                         ✓ Mark Verified Hazard
                       </button>
                       <button
                         type="button"
                         onClick={() => handleModerate(r.id, 'under_review')}
-                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: '#fef3c7', color: '#d97706', border: '1px solid #fde68a', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.4)', borderRadius: '4px', cursor: 'pointer' }}
                       >
                         ⏳ Under Review
                       </button>
                       <button
                         type="button"
                         onClick={() => handleModerate(r.id, 'resolved')}
-                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: '#dcfce7', color: '#16a34a', border: '1px solid #bbf7d0', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '4px', cursor: 'pointer' }}
                       >
                         ✓ Mark Resolved
                       </button>
                       <button
                         type="button"
                         onClick={() => handleModerate(r.id, 'rejected')}
-                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: '#f1f5f9', color: '#64748b', border: '1px solid #cbd5e1', borderRadius: '4px', cursor: 'pointer' }}
+                        style={{ padding: '4px 8px', fontSize: '10px', fontWeight: 600, background: '#111a26', color: '#94a3b8', border: '1px solid rgba(148, 163, 184, 0.2)', borderRadius: '4px', cursor: 'pointer' }}
                       >
                         ✗ Reject
                       </button>
                       <button
                         type="button"
                         onClick={() => setModeratingId(null)}
-                        style={{ padding: '4px 8px', fontSize: '10px', background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer' }}
+                        style={{ padding: '4px 8px', fontSize: '10px', background: 'transparent', border: 'none', color: '#64748b', cursor: 'pointer' }}
                       >
                         Cancel
                       </button>
@@ -792,7 +798,7 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
                   <button
                     type="button"
                     onClick={() => { setModeratingId(r.id); setModNotes(''); }}
-                    style={{ padding: '4px 8px', fontSize: '10px', background: '#eef2ff', color: '#4f46e5', border: '1px solid #c7d2fe', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
+                    style={{ padding: '4px 8px', fontSize: '10px', background: 'rgba(0, 255, 136, 0.12)', color: '#00ff88', border: '1px solid rgba(0, 255, 136, 0.3)', borderRadius: '4px', cursor: 'pointer', fontWeight: 600 }}
                   >
                     Change Status
                   </button>

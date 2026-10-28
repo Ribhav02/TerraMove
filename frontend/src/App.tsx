@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import { AppShell } from './components/AppShell';
 import { MapView } from './features/map/MapView';
 import { RoutePlannerPanel } from './features/route-planner/RoutePlannerPanel';
@@ -18,7 +18,33 @@ import type { RouteAlternative, ParkingItem, WeatherData, HealthStatus, HazardMa
 import './styles/theme.css';
 import './styles/App.css';
 
+// Lazy load the cinematic landing for performance
+const CinematicLanding = lazy(() => import('./features/cinematic/CinematicLanding'));
+import { LogoSplashIntro } from './features/cinematic/LogoSplashIntro';
+
+/* ============================================================
+   App — Root component
+   Manages view switching between cinematic landing and dashboard
+   ============================================================ */
+
 export const App: React.FC = () => {
+  // Splash Screen State
+  const [showSplash, setShowSplash] = useState<boolean>(() => {
+    if (window.location.hash === '#dashboard' || window.location.hash === '#map') {
+      return false;
+    }
+    return true;
+  });
+
+  // View State: 'landing' or 'dashboard'
+  const [view, setView] = useState<'landing' | 'dashboard'>(() => {
+    // Check URL hash for direct dashboard access
+    if (window.location.hash === '#dashboard' || window.location.hash === '#map') {
+      return 'dashboard';
+    }
+    return 'landing';
+  });
+
   // Navigation State
   const [startLat, setStartLat] = useState<number>(30.7395);
   const [startLon, setStartLon] = useState<number>(76.7810);
@@ -101,6 +127,9 @@ export const App: React.FC = () => {
 
   // Initial Load: health, sector boundary, weather, and initial route
   useEffect(() => {
+    // Only load backend data when dashboard is active
+    if (view !== 'dashboard') return;
+
     async function loadInitialData() {
       try {
         const [healthRes, boundaryRes, weatherRes] = await Promise.allSettled([
@@ -135,10 +164,11 @@ export const App: React.FC = () => {
     }, 8000);
 
     return () => clearInterval(healthTimer);
-  }, [calculateRoutes]);
+  }, [view, calculateRoutes]);
 
   // Auto-recalculate routes when start/dest/departure hour/accessibilityMode changes (debounced by 350ms)
   useEffect(() => {
+    if (view !== 'dashboard') return;
     if (initialMount.current) {
       initialMount.current = false;
       return;
@@ -149,7 +179,7 @@ export const App: React.FC = () => {
     }, 350);
 
     return () => clearTimeout(timer);
-  }, [startLat, startLon, destLat, destLon, departureHour, accessibilityMode, calculateRoutes]);
+  }, [startLat, startLon, destLat, destLon, departureHour, accessibilityMode, calculateRoutes, view]);
 
   const handleRefreshWeather = async () => {
     setIsWeatherLoading(true);
@@ -190,187 +220,229 @@ export const App: React.FC = () => {
     calculateRoutes(parking.latitude, parking.longitude, destLat, destLon, departureHour, accessibilityMode);
   };
 
+  const handleEnterDashboard = useCallback(() => {
+    setView('dashboard');
+    window.location.hash = '#dashboard';
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, []);
+
+  const handleBackToLanding = useCallback(() => {
+    setView('landing');
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, []);
+
+  // Handle browser back/forward
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#dashboard' || window.location.hash === '#map') {
+        setView('dashboard');
+      } else {
+        setView('landing');
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // ====== CINEMATIC LANDING VIEW ======
+  if (view === 'landing') {
+    return (
+      <>
+        {showSplash && (
+          <LogoSplashIntro onComplete={() => setShowSplash(false)} />
+        )}
+        <Suspense fallback={null}>
+          <CinematicLanding onEnterDashboard={handleEnterDashboard} />
+        </Suspense>
+      </>
+    );
+  }
+
+  // ====== DASHBOARD VIEW ======
   return (
-    <AppShell health={health}>
-      <div className="layout-grid">
-        {/* Left Side: Controls & Results */}
-        <aside className="control-sidebar">
-          {/* Live Microclimate Weather Card */}
-          <WeatherPanel
-            weather={weather}
-            onRefresh={handleRefreshWeather}
-            isLoading={isWeatherLoading}
-          />
+    <div className="dashboard-section">
+      <AppShell health={health} onBackToLanding={handleBackToLanding}>
+        <div className="layout-grid">
+          {/* Left Side: Controls & Results */}
+          <aside className="control-sidebar">
+            {/* Live Microclimate Weather Card */}
+            <WeatherPanel
+              weather={weather}
+              onRefresh={handleRefreshWeather}
+              isLoading={isWeatherLoading}
+            />
 
-          {/* Route Planner Inputs */}
-          <RoutePlannerPanel
-            startLat={startLat}
-            startLon={startLon}
-            destLat={destLat}
-            destLon={destLon}
-            departureHour={departureHour}
-            accessibilityMode={accessibilityMode}
-            isLoading={isLoading}
-            onStartChange={(lat, lon) => {
-              setStartLat(lat);
-              setStartLon(lon);
-            }}
-            onDestChange={(lat, lon) => {
-              setDestLat(lat);
-              setDestLon(lon);
-            }}
-            onHourChange={(hour) => setDepartureHour(hour)}
-            onToggleAccessibility={handleToggleAccessibility}
-            onCompare={handleCompare}
-          />
-
-          {/* Navigation Tabs: Routes vs Parking vs Community */}
-          <div className="tab-switcher">
-            <button
-              className={`tab-btn ${activeTab === 'routes' ? 'tab-btn-active' : ''}`}
-              onClick={() => setActiveTab('routes')}
-            >
-              Routes ({routes.length})
-            </button>
-            <button
-              className={`tab-btn ${activeTab === 'parking' ? 'tab-btn-active' : ''}`}
-              onClick={() => setActiveTab('parking')}
-            >
-              Parking ({parkingLots.length})
-            </button>
-            <button
-              className={`tab-btn ${activeTab === 'community' ? 'tab-btn-active' : ''}`}
-              onClick={() => setActiveTab('community')}
-            >
-              Community ({hazards.length})
-            </button>
-          </div>
-
-          {/* Feedback states */}
-          {isLoading && <LoadingState />}
-          {error && <ErrorState message={error} onRetry={handleCompare} />}
-
-          {/* Route Alternatives Tab */}
-          {activeTab === 'routes' && !isLoading && (
-            <div className="routes-tab-content">
-              {routeNote && (
-                <DataQualityNotice
-                  title="Network Topology Note"
-                  message={routeNote}
-                  variant="info"
-                />
-              )}
-
-              {routes.length === 0 && !error && (
-                <div className="empty-state">
-                  <p>Select origin and destination within Sector 17 and click <strong>Compare</strong> to generate shaded route alternatives.</p>
-                </div>
-              )}
-
-              {routes.map((route, idx) => (
-                <RouteComparisonCard
-                  key={route.preference}
-                  route={route}
-                  isSelected={idx === selectedRouteIndex}
-                  onSelect={() => setSelectedRouteIndex(idx)}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Parking Tab */}
-          {activeTab === 'parking' && (
-            <ParkingList
-              parkingLots={parkingLots}
-              selectedParkingId={selectedParking?.id || null}
+            {/* Route Planner Inputs */}
+            <RoutePlannerPanel
+              startLat={startLat}
+              startLon={startLon}
               destLat={destLat}
               destLon={destLon}
-              onSelectParking={(p) => setSelectedParking(p)}
-              onToggleSimulate={handleToggleSimulate}
-              isSimulatedActive={isSimulatedActive}
-              onNavigateFromParking={handleNavigateFromParking}
-              onRefreshParking={handleRefreshParking}
+              departureHour={departureHour}
+              accessibilityMode={accessibilityMode}
+              isLoading={isLoading}
+              onStartChange={(lat, lon) => {
+                setStartLat(lat);
+                setStartLon(lon);
+              }}
+              onDestChange={(lat, lon) => {
+                setDestLat(lat);
+                setDestLon(lon);
+              }}
+              onHourChange={(hour) => setDepartureHour(hour)}
+              onToggleAccessibility={handleToggleAccessibility}
+              onCompare={handleCompare}
             />
-          )}
 
-          {/* Community Tab */}
-          {activeTab === 'community' && (
-            <div className="community-tab-content" style={{ marginTop: '8px' }}>
-              <CommunityPanel
-                onSelectLocationOnMap={() => {
-                  setIsPickingLocation(true);
-                }}
-                pickedLocation={pickedLocation}
-                onFocusHazardOnMap={(hLat, hLon) => {
-                  setFocusLocation({ lat: hLat, lon: hLon });
-                }}
-                onReportsUpdated={async () => {
-                  try {
-                    const h = await fetchActiveHazards();
-                    setHazards(h);
-                  } catch (e) {
-                    console.error('Failed to update hazards:', e);
-                  }
-                }}
-              />
+            {/* Navigation Tabs: Routes vs Parking vs Community */}
+            <div className="tab-switcher">
+              <button
+                className={`tab-btn ${activeTab === 'routes' ? 'tab-btn-active' : ''}`}
+                onClick={() => setActiveTab('routes')}
+              >
+                Routes ({routes.length})
+              </button>
+              <button
+                className={`tab-btn ${activeTab === 'parking' ? 'tab-btn-active' : ''}`}
+                onClick={() => setActiveTab('parking')}
+              >
+                Parking ({parkingLots.length})
+              </button>
+              <button
+                className={`tab-btn ${activeTab === 'community' ? 'tab-btn-active' : ''}`}
+                onClick={() => setActiveTab('community')}
+              >
+                Community ({hazards.length})
+              </button>
             </div>
-          )}
-        </aside>
 
-        {/* Right Side: Interactive Leaflet Map */}
-        <section className="map-section">
-          <MapView
-            sectorGeoJson={sectorGeoJson}
-            routes={routes}
-            selectedRouteIndex={selectedRouteIndex}
-            onSelectRoute={(idx) => setSelectedRouteIndex(idx)}
-            startLat={startLat}
-            startLon={startLon}
-            destLat={destLat}
-            destLon={destLon}
-            onStartMove={(lat, lon) => {
-              setStartLat(lat);
-              setStartLon(lon);
-            }}
-            onDestMove={(lat, lon) => {
-              setDestLat(lat);
-              setDestLon(lon);
-            }}
-            parkingLots={parkingLots}
-            selectedParking={selectedParking}
-            onSelectParking={(p) => setSelectedParking(p)}
-            hazards={hazards}
-            showHazards={showHazards}
-            onToggleHazards={(show) => setShowHazards(show)}
-            isPickingLocation={isPickingLocation}
-            onLocationPicked={(pickLat, pickLon) => {
-              setPickedLocation({ lat: pickLat, lon: pickLon });
-              setIsPickingLocation(false);
-              setActiveTab('community');
-            }}
-            focusLocation={focusLocation}
-          />
-        </section>
-      </div>
+            {/* Feedback states */}
+            {isLoading && <LoadingState />}
+            {error && <ErrorState message={error} onRetry={handleCompare} />}
 
-      {/* Voice Assistant Floating Guide */}
-      <VoiceAssistantWidget
-        routes={routes}
-        selectedRouteIndex={selectedRouteIndex}
-        onSelectRouteIndex={(idx) => setSelectedRouteIndex(idx)}
-        weather={weather}
-        parkingLots={parkingLots}
-        destLat={destLat}
-        destLon={destLon}
-        onSetDestination={(lat, lon) => {
-          setDestLat(lat);
-          setDestLon(lon);
-        }}
-        onSwitchTab={(tab) => setActiveTab(tab)}
-        onTriggerCompare={handleCompare}
-        isLoadingRoutes={isLoading}
-      />
-    </AppShell>
+            {/* Route Alternatives Tab */}
+            {activeTab === 'routes' && !isLoading && (
+              <div className="routes-tab-content">
+                {routeNote && (
+                  <DataQualityNotice
+                    title="Network Topology Note"
+                    message={routeNote}
+                    variant="info"
+                  />
+                )}
+
+                {routes.length === 0 && !error && (
+                  <div className="empty-state">
+                    <p>Select origin and destination within Sector 17 and click <strong>Compare</strong> to generate shaded route alternatives.</p>
+                  </div>
+                )}
+
+                {routes.map((route, idx) => (
+                  <RouteComparisonCard
+                    key={route.preference}
+                    route={route}
+                    isSelected={idx === selectedRouteIndex}
+                    onSelect={() => setSelectedRouteIndex(idx)}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Parking Tab */}
+            {activeTab === 'parking' && (
+              <ParkingList
+                parkingLots={parkingLots}
+                selectedParkingId={selectedParking?.id || null}
+                destLat={destLat}
+                destLon={destLon}
+                onSelectParking={(p) => setSelectedParking(p)}
+                onToggleSimulate={handleToggleSimulate}
+                isSimulatedActive={isSimulatedActive}
+                onNavigateFromParking={handleNavigateFromParking}
+                onRefreshParking={handleRefreshParking}
+              />
+            )}
+
+            {/* Community Tab */}
+            {activeTab === 'community' && (
+              <div className="community-tab-content" style={{ marginTop: '8px' }}>
+                <CommunityPanel
+                  onSelectLocationOnMap={() => {
+                    setIsPickingLocation(true);
+                  }}
+                  pickedLocation={pickedLocation}
+                  onFocusHazardOnMap={(hLat, hLon) => {
+                    setFocusLocation({ lat: hLat, lon: hLon });
+                  }}
+                  onReportsUpdated={async () => {
+                    try {
+                      const h = await fetchActiveHazards();
+                      setHazards(h);
+                    } catch (e) {
+                      console.error('Failed to update hazards:', e);
+                    }
+                  }}
+                />
+              </div>
+            )}
+          </aside>
+
+          {/* Right Side: Interactive Leaflet Map */}
+          <section className="map-section">
+            <MapView
+              sectorGeoJson={sectorGeoJson}
+              routes={routes}
+              selectedRouteIndex={selectedRouteIndex}
+              onSelectRoute={(idx) => setSelectedRouteIndex(idx)}
+              startLat={startLat}
+              startLon={startLon}
+              destLat={destLat}
+              destLon={destLon}
+              onStartMove={(lat, lon) => {
+                setStartLat(lat);
+                setStartLon(lon);
+              }}
+              onDestMove={(lat, lon) => {
+                setDestLat(lat);
+                setDestLon(lon);
+              }}
+              parkingLots={parkingLots}
+              selectedParking={selectedParking}
+              onSelectParking={(p) => setSelectedParking(p)}
+              hazards={hazards}
+              showHazards={showHazards}
+              onToggleHazards={(show) => setShowHazards(show)}
+              isPickingLocation={isPickingLocation}
+              onLocationPicked={(pickLat, pickLon) => {
+                setPickedLocation({ lat: pickLat, lon: pickLon });
+                setIsPickingLocation(false);
+                setActiveTab('community');
+              }}
+              focusLocation={focusLocation}
+            />
+          </section>
+        </div>
+
+        {/* Voice Assistant Floating Guide */}
+        <VoiceAssistantWidget
+          routes={routes}
+          selectedRouteIndex={selectedRouteIndex}
+          onSelectRouteIndex={(idx) => setSelectedRouteIndex(idx)}
+          weather={weather}
+          parkingLots={parkingLots}
+          destLat={destLat}
+          destLon={destLon}
+          onSetDestination={(lat, lon) => {
+            setDestLat(lat);
+            setDestLon(lon);
+          }}
+          onSwitchTab={(tab) => setActiveTab(tab)}
+          onTriggerCompare={handleCompare}
+          isLoadingRoutes={isLoading}
+        />
+      </AppShell>
+    </div>
   );
 };
 

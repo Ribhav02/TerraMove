@@ -56,12 +56,12 @@ export const WeatherPanel: React.FC<WeatherPanelProps> = ({ weather, onRefresh, 
             <div
               key={idx}
               style={{
-                background: al.severity === 'high' ? '#fef2f2' : '#f0fdf4',
-                border: `1px solid ${al.severity === 'high' ? '#fecaca' : '#bbf7d0'}`,
+                background: al.severity === 'high' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(0, 255, 136, 0.12)',
+                border: `1px solid ${al.severity === 'high' ? 'rgba(239, 68, 68, 0.35)' : 'rgba(0, 255, 136, 0.3)'}`,
                 borderRadius: '6px',
                 padding: '6px 10px',
                 fontSize: '11px',
-                color: al.severity === 'high' ? '#991b1b' : '#166534',
+                color: al.severity === 'high' ? '#fca5a5' : '#86efac',
                 display: 'flex',
                 alignItems: 'flex-start',
                 gap: '8px'
@@ -69,7 +69,7 @@ export const WeatherPanel: React.FC<WeatherPanelProps> = ({ weather, onRefresh, 
             >
               <AlertTriangle style={{ width: '14px', height: '14px', flexShrink: 0, marginTop: '2px' }} />
               <div>
-                <strong>{al.title}:</strong> {al.message}
+                <strong style={{ color: al.severity === 'high' ? '#fecaca' : '#bbf7d0' }}>{al.title}:</strong> {al.message}
               </div>
             </div>
           ))}

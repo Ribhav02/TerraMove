@@ -1,35 +1,43 @@
 :root {
-  --color-primary: #059669;
-  --color-primary-hover: #047857;
-  --color-primary-light: #ecfdf5;
-  --color-accent: #0284c7;
-  --color-accent-light: #e0f2fe;
+  /* Brand Cybernetic Palette */
+  --color-primary: #00ff88;
+  --color-primary-hover: #34d399;
+  --color-primary-light: rgba(0, 255, 136, 0.12);
+  --color-accent: #38bdf8;
+  --color-accent-light: rgba(56, 189, 248, 0.12);
 
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-surface-hover: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-focus: #059669;
+  /* Obsidian & Slate Dark Theme Surfaces */
+  --color-bg: #06090e;
+  --color-surface: #0a1118;
+  --color-surface-hover: #121c27;
+  --color-surface-elevated: #162332;
+  --color-border: rgba(148, 163, 184, 0.14);
+  --color-border-hover: rgba(0, 255, 136, 0.35);
+  --color-border-focus: #00ff88;
 
-  --color-text-main: #0f172a;
-  --color-text-muted: #64748b;
-  --color-text-subtle: #94a3b8;
+  /* Typography */
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-subtle: #64748b;
 
-  --color-heat-low: #10b981;
+  /* Climate & Heat Scale */
+  --color-heat-low: #00ff88;
   --color-heat-mod: #f59e0b;
   --color-heat-high: #f97316;
   --color-heat-ext: #ef4444;
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Glows & Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 24px rgba(0, 255, 136, 0.2);
 
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-full: 9999px;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -52,7 +60,15 @@ button {
   transition: all 0.15s ease-in-out;
 }
 
-input, select {
+input, select, textarea {
   font-family: inherit;
+  color: var(--color-text-main);
+  background-color: #0b141e;
+  border: 1px solid var(--color-border);
 }
 
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}

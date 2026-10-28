@@ -400,13 +400,13 @@ export const MapView: React.FC<MapViewProps> = ({
       }).addTo(map);
 
       m.bindPopup(`
-        <div style="font-family: sans-serif; font-size: 13px; line-height: 1.4;">
-          <strong style="color: #0f172a; font-size: 14px;">${p.name}</strong><br/>
-          <span style="color: #64748b;">${p.address || 'Sector 17, Chandigarh'}</span>
-          <hr style="margin: 6px 0; border: none; border-top: 1px solid #e2e8f0;"/>
-          <div><strong>4-Wheeler:</strong> ${p.capacity_four_wheeler ?? 'N/A'} spaces</div>
-          <div><strong>2-Wheeler:</strong> ${p.capacity_two_wheeler ?? 'N/A'} spaces</div>
-          <div style="margin-top: 4px; color: #059669;"><strong>Distance:</strong> ${p.distance_to_dest_m}m (~${p.walking_time_to_dest_min} min walk)</div>
+        <div style="font-family: sans-serif; font-size: 13px; line-height: 1.4; color: #f8fafc;">
+          <strong style="color: #00ff88; font-size: 14px;">${p.name}</strong><br/>
+          <span style="color: #94a3b8;">${p.address || 'Sector 17, Chandigarh'}</span>
+          <hr style="margin: 6px 0; border: none; border-top: 1px solid rgba(148, 163, 184, 0.2);"/>
+          <div><strong style="color: #cbd5e1;">4-Wheeler:</strong> ${p.capacity_four_wheeler ?? 'N/A'} spaces</div>
+          <div><strong style="color: #cbd5e1;">2-Wheeler:</strong> ${p.capacity_two_wheeler ?? 'N/A'} spaces</div>
+          <div style="margin-top: 4px; color: #34d399;"><strong>Distance:</strong> ${p.distance_to_dest_m}m (~${p.walking_time_to_dest_min} min walk)</div>
           <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Status: ${p.availability_status}</div>
         </div>
       `);
@@ -437,23 +437,23 @@ export const MapView: React.FC<MapViewProps> = ({
       }).addTo(map);
 
       const statusBadge = h.status === 'verified'
-        ? '<span style="background:#fee2e2;color:#dc2626;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">VERIFIED HAZARD</span>'
+        ? '<span style="background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.4);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">VERIFIED HAZARD</span>'
         : (h.status === 'resolved'
-          ? '<span style="background:#dcfce7;color:#16a34a;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">RESOLVED</span>'
-          : '<span style="background:#fef3c7;color:#d97706;padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">COMMUNITY REPORT</span>');
+          ? '<span style="background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(16,185,129,0.4);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">RESOLVED</span>'
+          : '<span style="background:rgba(245,158,11,0.2);color:#fbbf24;border:1px solid rgba(245,158,11,0.4);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:bold;">COMMUNITY REPORT</span>');
 
       const photoHtml = h.photo_url
-        ? `<div style="margin-top:6px;"><img src="${h.photo_url}" alt="Hazard" style="width:100%;max-height:100px;object-fit:cover;border-radius:4px;border:1px solid #e2e8f0;"/></div>`
+        ? `<div style="margin-top:6px;"><img src="${h.photo_url}" alt="Hazard" style="width:100%;max-height:100px;object-fit:cover;border-radius:4px;border:1px solid rgba(148,163,184,0.2);"/></div>`
         : '';
 
       m.bindPopup(`
-        <div style="font-family: sans-serif; font-size: 12px; line-height: 1.4; max-width: 220px;">
+        <div style="font-family: sans-serif; font-size: 12px; line-height: 1.4; max-width: 220px; color: #f8fafc;">
           <div style="margin-bottom: 4px;">${statusBadge}</div>
-          <strong style="color: #0f172a; font-size: 13px;">${h.title}</strong><br/>
-          <span style="color: #64748b; font-size: 11px;">Category: ${h.category_display}</span><br/>
-          <span style="color: #64748b; font-size: 11px;">Severity: <strong>${h.severity}</strong></span>
+          <strong style="color: #f8fafc; font-size: 13px;">${h.title}</strong><br/>
+          <span style="color: #94a3b8; font-size: 11px;">Category: ${h.category_display}</span><br/>
+          <span style="color: #94a3b8; font-size: 11px;">Severity: <strong style="color: #00ff88;">${h.severity}</strong></span>
           ${photoHtml}
-          <div style="margin-top: 6px; font-size: 10px; color: #94a3b8;">
+          <div style="margin-top: 6px; font-size: 10px; color: #64748b;">
             Reported: ${new Date(h.created_at).toLocaleDateString()}
           </div>
         </div>
@@ -484,18 +484,19 @@ export const MapView: React.FC<MapViewProps> = ({
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 1000,
-          background: '#1e293b',
-          color: '#ffffff',
+          background: '#0d1520',
+          color: '#f8fafc',
+          border: '1px solid rgba(0, 255, 136, 0.4)',
           padding: '8px 16px',
           borderRadius: '30px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.6)',
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
           fontSize: '12px',
           fontWeight: 600
         }}>
-          <MapPin style={{ width: '14px', height: '14px', color: '#f59e0b' }} />
+          <MapPin style={{ width: '14px', height: '14px', color: '#00ff88' }} />
           <span>Click anywhere on the map to set report location</span>
         </div>
       )}
@@ -515,15 +516,16 @@ export const MapView: React.FC<MapViewProps> = ({
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '6px 12px',
+              padding: '7px 14px',
               fontSize: '11px',
-              fontWeight: 600,
-              backgroundColor: showHazards ? '#fee2e2' : '#ffffff',
-              color: showHazards ? '#dc2626' : '#64748b',
-              border: showHazards ? '1px solid #fca5a5' : '1px solid #cbd5e1',
+              fontWeight: 700,
+              backgroundColor: showHazards ? 'rgba(239, 68, 68, 0.18)' : 'rgba(13, 21, 32, 0.92)',
+              color: showHazards ? '#f87171' : '#cbd5e1',
+              border: showHazards ? '1px solid rgba(239, 68, 68, 0.45)' : '1px solid rgba(148, 163, 184, 0.22)',
               borderRadius: '20px',
               cursor: 'pointer',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.5)'
             }}
           >
             <AlertTriangle style={{ width: '13px', height: '13px' }} />

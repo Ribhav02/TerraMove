@@ -99,13 +99,13 @@ export const RouteComparisonCard: React.FC<RouteComparisonCardProps> = ({
       </div>
 
       {route.accessibility_score !== undefined && (
-        <div style={{ marginTop: '8px', padding: '6px 10px', background: '#f8fafc', borderRadius: '6px', fontSize: '11px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #e2e8f0' }}>
-          <span>♿ Accessibility: <strong>{route.accessibility_score}/100</strong> ({route.step_free ? 'Step-Free' : 'Contains Steps'})</span>
-          <span>Paved: <strong>{route.paved_percentage}%</strong></span>
+        <div style={{ marginTop: '8px', padding: '6px 10px', background: '#091018', borderRadius: '6px', fontSize: '11px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid rgba(148, 163, 184, 0.18)', color: '#f8fafc' }}>
+          <span>♿ Accessibility: <strong style={{ color: '#00ff88' }}>{route.accessibility_score}/100</strong> ({route.step_free ? 'Step-Free' : 'Contains Steps'})</span>
+          <span>Paved: <strong style={{ color: '#38bdf8' }}>{route.paved_percentage}%</strong></span>
         </div>
       )}
       {route.accessibility_notes && route.accessibility_notes.length > 0 && isSelected && (
-        <div style={{ marginTop: '4px', fontSize: '11px', color: '#64748b', fontStyle: 'italic', paddingLeft: '4px' }}>
+        <div style={{ marginTop: '4px', fontSize: '11px', color: '#94a3b8', fontStyle: 'italic', paddingLeft: '4px' }}>
           {route.accessibility_notes[0]}
         </div>
       )}

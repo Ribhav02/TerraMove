@@ -116,14 +116,14 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
     <div style={{
       marginTop: '12px',
       padding: '12px 14px',
-      background: '#f8fafc',
+      background: '#091018',
       borderRadius: '8px',
-      border: '1px solid #e2e8f0'
+      border: '1px solid rgba(148, 163, 184, 0.18)'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <Compass className="w-4 h-4 text-indigo-600" style={{ width: '16px', height: '16px', color: '#4f46e5' }} />
-          <span style={{ fontSize: '13px', fontWeight: 600, color: '#1e293b' }}>
+          <Compass className="w-4 h-4" style={{ width: '16px', height: '16px', color: '#00ff88' }} />
+          <span style={{ fontSize: '13px', fontWeight: 600, color: '#f8fafc' }}>
             Voice-Guided Walking Directions
           </span>
         </div>
@@ -135,11 +135,12 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
               onClick={toggleMute}
               title={isMuted ? 'Unmute voice guidance' : 'Mute voice guidance'}
               style={{
-                background: 'transparent',
-                border: 'none',
+                background: '#111a26',
+                border: '1px solid rgba(148, 163, 184, 0.2)',
+                borderRadius: '4px',
                 cursor: 'pointer',
-                padding: '4px',
-                color: isMuted ? '#94a3b8' : '#4f46e5'
+                padding: '4px 6px',
+                color: isMuted ? '#64748b' : '#00ff88'
               }}
             >
               {isMuted ? <VolumeX style={{ width: '16px', height: '16px' }} /> : <Volume2 style={{ width: '16px', height: '16px' }} />}
@@ -154,14 +155,15 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                padding: '5px 12px',
+                padding: '6px 12px',
                 fontSize: '12px',
-                fontWeight: 600,
-                color: '#ffffff',
-                backgroundColor: '#4f46e5',
+                fontWeight: 700,
+                color: '#04070c',
+                background: 'linear-gradient(135deg, #00ff88 0%, #059669 100%)',
                 border: 'none',
                 borderRadius: '6px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                boxShadow: '0 0 12px rgba(0, 255, 136, 0.25)'
               }}
             >
               <Play style={{ width: '12px', height: '12px', fill: 'currentColor' }} />
@@ -175,12 +177,12 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                padding: '5px 12px',
+                padding: '6px 12px',
                 fontSize: '12px',
                 fontWeight: 600,
-                color: '#dc2626',
-                backgroundColor: '#fee2e2',
-                border: '1px solid #fca5a5',
+                color: '#f87171',
+                backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                border: '1px solid rgba(239, 68, 68, 0.4)',
                 borderRadius: '6px',
                 cursor: 'pointer'
               }}
@@ -193,7 +195,7 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
       </div>
 
       {!isSupported && (
-        <div style={{ fontSize: '11px', color: '#64748b', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '6px' }}>
+        <div style={{ fontSize: '11px', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '6px' }}>
           <Info style={{ width: '12px', height: '12px' }} />
           <span>Speech synthesis is not supported in this browser. Step guidance will display visually.</span>
         </div>
@@ -202,17 +204,17 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
       {isActive && currentStep && (
         <div style={{
           marginTop: '10px',
-          padding: '10px 12px',
-          background: '#ffffff',
+          padding: '12px',
+          background: '#0d1520',
           borderRadius: '6px',
-          border: '1px solid #cbd5e1',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
+          border: '1px solid rgba(0, 255, 136, 0.25)',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-            <span style={{ fontSize: '11px', fontWeight: 600, color: '#4f46e5', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '11px', fontWeight: 700, color: '#00ff88', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Turn {currentStepIndex + 1} of {totalSteps}
             </span>
-            <span style={{ fontSize: '11px', color: '#64748b' }}>
+            <span style={{ fontSize: '11px', color: '#94a3b8' }}>
               ~{Math.round(currentStep.distance_m)}m · {Math.round(currentStep.duration_sec)}s
             </span>
           </div>
@@ -220,16 +222,16 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
           <div style={{
             fontSize: '14px',
             fontWeight: 600,
-            color: '#0f172a',
-            marginBottom: '6px',
+            color: '#f8fafc',
+            marginBottom: '8px',
             lineHeight: '1.4'
           }}>
             {currentStep.instruction}
           </div>
 
           {/* Progress bar */}
-          <div style={{ height: '4px', background: '#e2e8f0', borderRadius: '2px', overflow: 'hidden', marginBottom: '10px' }}>
-            <div style={{ height: '100%', width: `${progressPercent}%`, background: '#4f46e5', transition: 'width 0.3s ease' }} />
+          <div style={{ height: '4px', background: '#1c2838', borderRadius: '2px', overflow: 'hidden', marginBottom: '10px' }}>
+            <div style={{ height: '100%', width: `${progressPercent}%`, background: 'linear-gradient(90deg, #00ff88, #38bdf8)', transition: 'width 0.3s ease' }} />
           </div>
 
           {/* Navigation Controls */}
@@ -240,11 +242,12 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
                 onClick={handlePrevStep}
                 disabled={currentStepIndex === 0}
                 style={{
-                  padding: '4px 8px',
+                  padding: '4px 10px',
                   fontSize: '11px',
-                  border: '1px solid #cbd5e1',
-                  background: currentStepIndex === 0 ? '#f1f5f9' : '#ffffff',
-                  color: currentStepIndex === 0 ? '#94a3b8' : '#334155',
+                  fontWeight: 600,
+                  border: '1px solid rgba(148, 163, 184, 0.2)',
+                  background: currentStepIndex === 0 ? '#0b131e' : '#162436',
+                  color: currentStepIndex === 0 ? '#64748b' : '#cbd5e1',
                   borderRadius: '4px',
                   cursor: currentStepIndex === 0 ? 'not-allowed' : 'pointer'
                 }}
@@ -258,11 +261,12 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
                 onClick={handleRepeatStep}
                 title="Repeat spoken instruction"
                 style={{
-                  padding: '4px 8px',
+                  padding: '4px 10px',
                   fontSize: '11px',
-                  border: '1px solid #cbd5e1',
-                  background: '#ffffff',
-                  color: '#334155',
+                  fontWeight: 600,
+                  border: '1px solid rgba(148, 163, 184, 0.2)',
+                  background: '#162436',
+                  color: '#cbd5e1',
                   borderRadius: '4px',
                   cursor: 'pointer'
                 }}
@@ -276,14 +280,14 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
                 onClick={handleNextStep}
                 disabled={currentStepIndex === totalSteps - 1}
                 style={{
-                  padding: '4px 8px',
+                  padding: '4px 10px',
                   fontSize: '11px',
-                  border: '1px solid #4f46e5',
-                  background: currentStepIndex === totalSteps - 1 ? '#f1f5f9' : '#4f46e5',
-                  color: currentStepIndex === totalSteps - 1 ? '#94a3b8' : '#ffffff',
+                  fontWeight: 600,
+                  border: '1px solid rgba(0, 255, 136, 0.4)',
+                  background: currentStepIndex === totalSteps - 1 ? '#0b131e' : '#059669',
+                  color: currentStepIndex === totalSteps - 1 ? '#64748b' : '#ffffff',
                   borderRadius: '4px',
-                  cursor: currentStepIndex === totalSteps - 1 ? 'not-allowed' : 'pointer',
-                  fontWeight: 600
+                  cursor: currentStepIndex === totalSteps - 1 ? 'not-allowed' : 'pointer'
                 }}
               >
                 Next
@@ -291,7 +295,7 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
               </button>
             </div>
 
-            <span style={{ fontSize: '10px', color: '#64748b' }}>
+            <span style={{ fontSize: '10px', color: '#94a3b8' }}>
               {isSpeaking ? 'Speaking...' : (isMuted ? 'Muted' : 'Ready')}
             </span>
           </div>
@@ -303,14 +307,14 @@ export const RouteVoiceGuidance: React.FC<RouteVoiceGuidanceProps> = ({
         <div style={{
           marginTop: '8px',
           padding: '6px 10px',
-          background: '#fffbeb',
-          border: '1px solid #fef3c7',
+          background: 'rgba(245, 158, 11, 0.12)',
+          border: '1px solid rgba(245, 158, 11, 0.3)',
           borderRadius: '6px',
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
           fontSize: '11px',
-          color: '#b45309'
+          color: '#fbbf24'
         }}>
           <AlertTriangle style={{ width: '14px', height: '14px', flexShrink: 0 }} />
           <span>

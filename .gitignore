@@ -25,3 +25,25 @@ frontend/dist/
 .DS_Store
 Thumbs.db
 
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and cache
+.venv/
+.venv_mac/
+**/.venv/
+**/.venv_mac/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node.js
+node_modules/
+**/node_modules/
+frontend/dist/
+
+# Local files
+.DS_Store

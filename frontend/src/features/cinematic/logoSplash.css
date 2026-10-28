@@ -1,0 +1,256 @@
+/* ============================================================
+   TERRAMOVE LOGO SPLASH INTRO ANIMATION
+   ============================================================ */
+
+.logo-splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: #04070c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-splash-overlay.splash-exiting {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* Background Cyber Grid */
+.splash-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  pointer-events: none;
+}
+
+/* Radial Ambient Green Glow */
+.splash-ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.18) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: splashPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes splashPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Center Content */
+.splash-center-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 20px;
+  max-width: 680px;
+  width: 90%;
+}
+
+/* Halo Rings */
+.splash-halo-ring {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 255, 136, 0.25);
+  animation: splashRotate 20s linear infinite;
+  pointer-events: none;
+}
+
+.splash-halo-ring.secondary {
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  animation: splashRotateRev 25s linear infinite;
+}
+
+@keyframes splashRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes splashRotateRev {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* Logo Image Container */
+.splash-logo-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 12px 24px;
+  animation: splashLogoEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashLogoEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+    filter: blur(8px) brightness(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px) brightness(1);
+  }
+}
+
+.splash-logo-image {
+  display: block;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 35px rgba(0, 255, 136, 0.45));
+}
+
+/* Shimmer Light Sweep across logo */
+.splash-shimmer-sweep {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 80%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: splashShimmer 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s infinite;
+  pointer-events: none;
+}
+
+@keyframes splashShimmer {
+  0% { left: -120%; }
+  100% { left: 220%; }
+}
+
+/* Telemetry Box */
+.splash-telemetry-box {
+  margin-top: 36px;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: splashFadeUp 0.8s ease 0.4s both;
+}
+
+@keyframes splashFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.splash-status-text {
+  font-family: 'Inter', -apple-system, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00ff88;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.splash-blinking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: splashBlink 0.8s infinite alternate;
+}
+
+@keyframes splashBlink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* Progress Track */
+.splash-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.splash-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #059669 0%, #00ff88 60%, #c4f56b 100%);
+  border-radius: 9999px;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
+}
+
+.splash-progress-stats {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 10px;
+  color: #64748b;
+  letter-spacing: 0.08em;
+}
+
+.splash-pct-num {
+  color: #cbd5e1;
+  font-weight: 700;
+}
+
+/* Skip Button */
+.splash-skip-btn {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+
+.splash-skip-btn:hover {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.5);
+  color: #00ff88;
+}
+
+.skip-arrow {
+  font-size: 12px;
+}
