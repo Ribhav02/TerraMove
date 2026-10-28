@@ -107,14 +107,17 @@ export const SmartCityWaypoints: React.FC<{ visible?: boolean }> = ({ visible = 
     return new THREE.BufferGeometry().setFromPoints(boundaryPoints);
   }, [boundaryPoints]);
 
+  const boundaryLine = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({ color: '#00ff88', linewidth: 3 });
+    return new THREE.Line(boundaryGeometry, mat);
+  }, [boundaryGeometry]);
+
   if (!visible) return null;
 
   return (
     <group>
       {/* Neon Sector 17 Perimeter Boundary (Ref 3) */}
-      <line geometry={boundaryGeometry}>
-        <lineBasicMaterial color="#00ff88" linewidth={3} />
-      </line>
+      <primitive object={boundaryLine} />
 
       {/* Boundary Floor Glow Ribbon */}
       {boundaryPoints.slice(0, -1).map((pt, i) => {

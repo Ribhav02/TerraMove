@@ -10,6 +10,7 @@ import { useFrame } from '@react-three/fiber';
 
 export const CircuitEnergyTrails: React.FC<{ progress?: number }> = ({ progress = 1 }) => {
   const photonGroupRef = useRef<THREE.Group>(null);
+  const clampedProgress = Math.min(1, Math.max(0, progress));
 
   // Generate main artery paths mimicking PCB bus ribbon
   const mainArteries = useMemo(() => {
@@ -77,14 +78,14 @@ export const CircuitEnergyTrails: React.FC<{ progress?: number }> = ({ progress 
           <meshBasicMaterial
             color={art.color}
             transparent
-            opacity={0.85}
+            opacity={0.85 * clampedProgress}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
       ))}
 
       {/* Zooming Data Photons (Ref 1) */}
-      <group ref={photonGroupRef}>
+      <group ref={photonGroupRef} visible={clampedProgress > 0.05} scale={clampedProgress}>
         {photons.map((p, idx) => (
           <mesh key={`photon-${idx}`}>
             <sphereGeometry args={[p.size, 12, 12]} />

@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 
@@ -108,27 +108,53 @@ export const RouteTrail: React.FC<RouteTrailProps> = ({
     return new THREE.BufferGeometry().setFromPoints(altBPoints);
   }, [altBPoints]);
 
+  const glowLine = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({
+      color: '#C4F56B',
+      transparent: true,
+      opacity: 0.3 * glowIntensity,
+      linewidth: 1
+    });
+    return new THREE.Line(initialGeo.clone(), mat);
+  }, [initialGeo, glowIntensity]);
+
+  const mainLine = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({
+      color: '#C4F56B',
+      transparent: true,
+      opacity: 0.9 * glowIntensity,
+      linewidth: 1
+    });
+    return new THREE.Line(initialGeo.clone(), mat);
+  }, [initialGeo, glowIntensity]);
+
+  const altALine = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({
+      color: '#6366f1',
+      transparent: true,
+      opacity: 0.6,
+      linewidth: 1
+    });
+    return new THREE.Line(altAGeo, mat);
+  }, [altAGeo]);
+
+  const altBLine = useMemo(() => {
+    const mat = new THREE.LineBasicMaterial({
+      color: '#0284c7',
+      transparent: true,
+      opacity: 0.6,
+      linewidth: 1
+    });
+    return new THREE.Line(altBGeo, mat);
+  }, [altBGeo]);
+
   return (
     <group>
       {/* Main route — luminous lime glow layer */}
-      <line ref={glowLineRef} geometry={initialGeo.clone()}>
-        <lineBasicMaterial
-          color="#C4F56B"
-          transparent
-          opacity={0.3 * glowIntensity}
-          linewidth={1}
-        />
-      </line>
+      <primitive ref={glowLineRef} object={glowLine} />
 
       {/* Main route — solid lime core */}
-      <line ref={mainLineRef} geometry={initialGeo.clone()}>
-        <lineBasicMaterial
-          color="#C4F56B"
-          transparent
-          opacity={0.9 * glowIntensity}
-          linewidth={1}
-        />
-      </line>
+      <primitive ref={mainLineRef} object={mainLine} />
 
       {/* Route glow tube for more visible 3D effect */}
       {progress > 0.05 && (
@@ -157,6 +183,7 @@ export const RouteTrail: React.FC<RouteTrailProps> = ({
       {showAlternates && (
         <group>
           {/* Fastest — indigo */}
+          <primitive object={altALine} />
           <mesh>
             <tubeGeometry args={[
               new THREE.CatmullRomCurve3(altAPoints),
@@ -171,6 +198,7 @@ export const RouteTrail: React.FC<RouteTrailProps> = ({
           </mesh>
 
           {/* Balanced — cyan */}
+          <primitive object={altBLine} />
           <mesh>
             <tubeGeometry args={[
               new THREE.CatmullRomCurve3(altBPoints),

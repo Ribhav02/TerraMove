@@ -251,7 +251,6 @@ export const CommunityPanel: React.FC<CommunityPanelProps> = ({
             padding: '7px 10px',
             fontSize: '12px',
             fontWeight: 600,
-            border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
             backgroundColor: activeTab === 'report' ? '#162436' : 'transparent',

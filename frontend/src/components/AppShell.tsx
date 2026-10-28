@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Leaf, ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
+import { ShieldCheck, AlertCircle, ArrowLeft } from 'lucide-react';
 import type { HealthStatus } from '../types';
 
 interface AppShellProps {
