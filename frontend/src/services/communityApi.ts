@@ -1,4 +1,4 @@
-import { fetchJson } from './api';
+import { fetchJson, buildApiUrl, getDirectBackendUrl } from './api';
 import type {
   CitizenReportItem,
   ReportListResponse,
@@ -28,17 +28,17 @@ export async function uploadReportPhoto(file: File): Promise<{ photo_url: string
   const formData = new FormData();
   formData.append('file', file);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
-  const DIRECT_BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:8001/api/v1';
+  const primaryUrl = buildApiUrl('/community/upload-photo');
+  const directUrl = buildApiUrl('/community/upload-photo', getDirectBackendUrl());
 
   let response: Response;
   try {
-    response = await fetch(`${API_BASE_URL}/community/upload-photo`, {
+    response = await fetch(primaryUrl, {
       method: 'POST',
       body: formData,
     });
   } catch {
-    response = await fetch(`${DIRECT_BACKEND_URL}/community/upload-photo`, {
+    response = await fetch(directUrl, {
       method: 'POST',
       body: formData,
     });
@@ -101,4 +101,3 @@ export async function moderateCitizenReport(
     }),
   });
 }
-
